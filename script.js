@@ -28,5 +28,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize first slide
     slides[0].classList.add('fade');
 });
-
-// If you have existing JavaScript for mobile menu, include it here
