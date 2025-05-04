@@ -28,6 +28,39 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(showSlides, slideInterval);
 });
 
+// Handle sign-up
+const signupForm = document.getElementById('signup-form');
+if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Save user to localStorage
+        localStorage.setItem('user', JSON.stringify({ username, email, password }));
+        alert('Account created successfully!');
+        window.location.href = 'Log.html';
+    });
+}
+
+// Handle login
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        const savedUser = JSON.parse(localStorage.getItem('user'));
+        if (savedUser && savedUser.email === email && savedUser.password === password) {
+            alert(`Welcome, ${savedUser.username}!`);
+            window.location.href = 'index.html';
+        } else {
+            alert('Invalid credentials.');
+        }
+    });
+}
 
 // Cart functionality
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
