@@ -1,6 +1,7 @@
-// Slideshow functionality
+// Slideshow functionality with 3 second interval
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
+const slideInterval = 3000; // 3 seconds
 
 function showSlides() {
     // Hide all slides
@@ -10,21 +11,18 @@ function showSlides() {
     
     // Move to next slide
     slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
     }
     
     // Show current slide
-    slides[slideIndex-1].classList.add('fade');
-    
-    // Change image every 3 seconds
-    setTimeout(showSlides, 3000);
+    slides[slideIndex].classList.add('fade');
 }
 
-// Start the slideshow when page loads
+// Initialize slideshow
 document.addEventListener('DOMContentLoaded', () => {
-    showSlides();
-    
-    // Initialize first slide
+    // Show first slide immediately
     slides[0].classList.add('fade');
-});
+    
+    // Set up automatic rotation
+    setInterval(showSlides, slide
