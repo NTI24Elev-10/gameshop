@@ -11,31 +11,26 @@
 <body>
     <!-- Navbar -->
     <header>
-        <div class="header-content">
-            <div class="logo">TGK</div>
-            <nav>
-                <ul>
+    <div class="header-content">
+        <div class="logo">TGK</div>
+        <nav>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Platform.html">Platform</a></li>
-                <li><a href="Genres.html">Genres</a></li>
-                <li><a href="Cart.html">Cart</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-		<li><a href="Sign.html">Sign up</a></li>  
-		<li><a href="Log.html">Log in</a></li>
-                
-            
-        </div>
-    <div id="user-icon" class="user-icon hidden">
-    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Icon">
-    <div id="user-dropdown" class="dropdown hidden">
-        <a href="profile.html">Profile</a>
-        <a href="#" id="logout">Logout</a>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li id="login-link"><a href="login.html">Login</a></li>
+                <li id="signup-link"><a href="signup.html">Sign Up</a></li>
+            </ul>
+            <div id="user-icon" class="user-icon hidden">
+                <img src="user-avatar.png" alt="User">
+                <div id="user-dropdown" class="dropdown hidden">
+                    <a href="#">Profile</a>
+                    <a href="#" id="logout">Logout</a>
+                </div>
+            </div>
+        </nav>
     </div>
-		</ul>
-    </nav>
-</div>
-    </header>
-
+</header>
      <!-- Hero section with slideshow -->
     <section class="hero">
         <div class="slideshow-container">
