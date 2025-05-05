@@ -73,7 +73,7 @@ function updateCartCount() {
     });
 }
 
-// Add to cart function (call this when "Add to Cart" is clicked)
+// Add to cart function (call when "Add to Cart" is clicked)
 function addToCart(game) {
     const existingItem = cart.find(item => item.id === game.id);
     if (existingItem) {
@@ -128,7 +128,7 @@ function renderCart() {
         `;
     }).join('');
 
-    const tax = subtotal * 0.2; // 20% tax
+    const tax = subtotal * 0.5; // 50% tax
     const total = subtotal + tax;
 
     subtotalEl.textContent = `€${subtotal.toFixed(2)}`;
@@ -145,11 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCart();
     }
     
-    // Sample game data - in a real app this would come from your database
+    
     window.gameData = [
         { id: '1', title: 'Stick Cart', price: 59.99, image: 'Stick-cart.png' },
         { id: '2', title: 'Stick Warfare', price: 49.99, image: 'Stick-warfare.png' },
-        // Add all your games here
+        { id: '3', title: 'Stick Fest', price: 39.99, image: 'Stick-fest.png'},
+        { id: '4', title: 'For Stick', price: 54.99, image: 'For-stick.png'},
+        { id: '5', title: 'Warfare Total Stick', price: 54.99, image: 'Warfare-total-stick.png'},
+        { id: '6', title: 'Slap Stick', price: 54.99, image: 'Slap-stick.png'},
+        { id: '7', title: 'Shaolin Stick', price: 54.99, image: 'Shaolin-stick.png'},
     ];
     
     // Add click handlers for "Add to Cart" buttons
