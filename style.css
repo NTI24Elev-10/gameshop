@@ -87,7 +87,7 @@ nav ul li a:hover {
 .dropdown a {
     padding: 10px;
     text-decoration: none;
-    color: black;
+    color: red;
 }
 
 .dropdown a:hover {
