@@ -61,36 +61,45 @@ if (loginForm) {
         }
     });
 }
+// Show user icon if logged in
+const savedUser = JSON.parse(localStorage.getItem('user'));
+const userIcon = document.getElementById('user-icon');
+const loginLink = document.getElementById('login-link');
+const signupLink = document.getElementById('signup-link');
 
-    // Show user icon if logged in
-    const savedUser = JSON.parse(localStorage.getItem('user'));
-    const userIcon = document.getElementById('user-icon');
-    const loginLink = document.querySelector('a[href="Log.html"]');
-    const signupLink = document.querySelector('a[href="Sign.html"]');
+if (savedUser) {
+    if (userIcon) userIcon.classList.remove('hidden');
+    if (loginLink) loginLink.classList.add('hidden');
+    if (signupLink) signupLink.classList.add('hidden');
+}
 
-    if (savedUser && userIcon) {
-        userIcon.classList.remove('hidden');
-        if (loginLink) loginLink.style.display = 'none';
-        if (signupLink) signupLink.style.display = 'none';
+// Toggle dropdown menu on user icon click
+if (userIcon) {
+    userIcon.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event from bubbling up
+        const dropdown = document.getElementById('user-dropdown');
+        dropdown.classList.toggle('show');
+    });
+}
+
+// Close dropdown when clicking anywhere else
+document.addEventListener('click', () => {
+    const dropdown = document.getElementById('user-dropdown');
+    if (dropdown && dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
     }
+});
 
-    // Toggle dropdown menu on user icon click
-    if (userIcon) {
-        userIcon.addEventListener('click', () => {
-            const dropdown = document.getElementById('user-dropdown');
-            dropdown.classList.toggle('hidden');
-        });
-    }
-
-    // Handle logout
-    const logoutBtn = document.getElementById('logout');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            localStorage.removeItem('user');
-            alert('Logged out successfully.');
-            window.location.reload();
-        });
-    }
+// Handle logout
+const logoutBtn = document.getElementById('logout');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('user');
+        alert('Logged out successfully.');
+        window.location.href = 'index.html';
+    });
+}
 
 
 // Cart functionality
