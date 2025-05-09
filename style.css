@@ -51,7 +51,7 @@ nav ul li a:hover {
     color: #00008B;
 }
 
-/* User Icon and Dropdown */
+/* User Icon and Dropdown Styles */
 .user-icon {
     position: relative;
     cursor: pointer;
@@ -103,6 +103,7 @@ nav ul li a:hover {
 .hidden {
     display: none !important;
 }
+
 /* Hero Section with Slideshow - Fixed */
 .hero {
     position: relative;
