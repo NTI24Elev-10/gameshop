@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: '7', title: 'Shaolin Stick', price: 54.99, image: 'Shaolin-stick.png'},
     ];
 
-    // Initialize user's cart if doesn't exist
+    // Initialize users cart if doesn't exist
     function initializeUserCart() {
         if (currentUser && !currentUser.cart) {
             currentUser.cart = [];
