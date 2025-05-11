@@ -1,3 +1,4 @@
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -51,58 +52,101 @@ nav ul li a:hover {
     color: #00008B;
 }
 
-/* User Icon and Dropdown Styles */
-.user-icon {
+/* Dropdown Button Styles */
+.dropdown-container {
     position: relative;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
+    display: none; /* Hidden by default */
+    margin-left: 20px;
 }
 
-.user-icon img {
+.dropdown-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background-color: #3e8e41;
+}
+
+.user-avatar {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
 }
 
-.dropdown {
+.username {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.dropdown-arrow {
+    font-size: 0.8em;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
     position: absolute;
-    top: 50px;
     right: 0;
-    background-color: white;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
     border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    width: 150px;
-    z-index: 1000;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu (use JS to add this class) */
+.show {
+    display: block;
+}
+
+
+/* When user is logged in */
+.logged-in .dropdown-container {
+    display: inline-block;
+}
+
+ .logged-in #login-link,
+ .logged-in #signup-link {
     display: none;
 }
 
-.dropdown.show {
+/* Hide login/signup links when dropdown is visible */
+ .logged-in #login-link,
+ .logged-in #signup-link {
+    display: none;
+}
+
+/* Show dropdown container when logged in */
+ .logged-in .dropdown-container {
     display: block;
 }
 
-.dropdown a {
-    display: block;
-    padding: 10px 15px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.2s;
-}
 
-.dropdown a:hover {
-    background-color: #f5f5f5;
-    color: #e94560;
-}
 
-.hidden {
-    display: none !important;
-}
+
 
 /* Hero Section with Slideshow - Fixed */
 .hero {
@@ -409,6 +453,26 @@ footer {
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart Success Message */
+.cart-success {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 4px;
+    z-index: 1000;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
 }
 
 /* Responsive Adjustments */
