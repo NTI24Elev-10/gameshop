@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGK - Genres</title>
+    <title>TGK - Your Ultimate Stick Game Shop</title>
     <link rel="stylesheet" href="style.css">
-    
-
 </head>
 <body>
-    <!-- Navbar -->
     <header>
         <div class="header-content">
             <div class="logo">TGK</div>
             <nav>
-                <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Platform.html">Platform</a></li>
-                <li><a href="Genres.html">Genres</a></li>
-                <li><a href="Cart.html">Cart</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-		<li><a href="Sign.html">Sign up</a></li>  
-		<li><a href="Log.html">Log in</a></li>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Platform.html">Platform</a></li>
+                    <li><a href="Genres.html">Genres</a></li>
+                    <li><a href="Cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li id="login-link"><a href="Log.html">Log in</a></li>
+                    <li id="signup-link"><a href="Sign.html">Sign up</a></li>
                 </ul>
+                
+                <!-- Dropdown Container -->
+                <div class="dropdown-container" id="user-dropdown-container">
+                    <button class="dropdown-btn" id="user-dropdown-btn">
+                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User" class="user-avatar">
+                        <span class="username" id="username-display">Account</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-content" id="user-dropdown">
+                        <a href="profile.html">Profile</a>
+                        <a href="#" id="logout">Logout</a>
+                    </div>
+                </div>
             </nav>
         </div>
-    <div id="user-icon" class="user-icon hidden">
-    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Icon">
-    <div id="user-dropdown" class="dropdown hidden">
-        <a href="profile.html">Profile</a>
-        <a href="#" id="logout">Logout</a>
-    </div>
-</div>
     </header>
 
      <!-- Hero section with slideshow -->
