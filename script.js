@@ -256,6 +256,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    
+    //game hover
+    const descriptionBox = document.createElement('div');
+descriptionBox.classList.add('game-description-box');
+document.body.appendChild(descriptionBox);
+
+document.querySelectorAll('.game-card').forEach(card => {
+    const index = card.getAttribute('data-index');
+    const game = gameData[index];
+
+    card.addEventListener('mouseenter', (e) => {
+        descriptionBox.textContent = game.description;
+        descriptionBox.style.display = 'block';
+    });
+
+    card.addEventListener('mousemove', (e) => {
+        descriptionBox.style.left = `${e.pageX + 20}px`;
+        descriptionBox.style.top = `${e.pageY}px`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        descriptionBox.style.display = 'none';
+    });
+});
+
+
 
     initializeUserCart();
     updateAuthUI();
