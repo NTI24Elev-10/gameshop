@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const gameData = [
-        { id: '1', title: 'Stick Cart', price: 59.99, image: 'Stick-cart.png' },
-        { id: '2', title: 'Stick Warfare', price: 49.99, image: 'Stick-warfare.png' },
-        { id: '3', title: 'Stick Fest', price: 39.99, image: 'Stick-fest.png' },
-        { id: '4', title: 'For Stick', price: 54.99, image: 'For-stick.png' },
-        { id: '5', title: 'Warfare Total Stick', price: 54.99, image: 'Warfare-total-stick.png' },
+        { id: '1', title: 'Stick Cart', price: 59.99, image: 'Stick-cart.png', description: 'Race with your friends in the ultimate stick cart championship' },
+        { id: '2', title: 'Stick Warfare', price: 49.99, image: 'Stick-warfare.png', description: 'Fight against other stickpeople by yourself or with your friends in this modern deadly stick war.' },
+        { id: '3', title: 'Stick Fest', price: 39.99, image: 'Stick-fest.png', description: 'Dance and have fun with other stickpeople in this musically driven dance filled stick fest.' },
+        { id: '4', title: 'For Stick', price: 54.99, image: 'For-stick.png', description: 'Fight for your fiefdom in this medieval stick world using wide range of weapons such as sword, spear and axe.' },
+        { id: '5', title: 'Warfare Total Stick', price: 54.99, image: 'Warfare-total-stick.png', description:},
         { id: '6', title: 'Slap Stick', price: 54.99, image: 'Slap-stick.png' },
         { id: '7', title: 'Shaolin Stick', price: 54.99, image: 'Shaolin-stick.png' },
     ];
@@ -255,6 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Checkout functionality would go here in a real application!');
         });
     }
+
 
     initializeUserCart();
     updateAuthUI();
