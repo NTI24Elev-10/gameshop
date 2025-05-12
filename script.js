@@ -1,27 +1,28 @@
-let slideIndex = 0; 
-const slides = document.querySelectorAll('.slide'); 
-const slideInterval = 3000; 
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const slideInterval = 3000;
 
-function showSlides() { 
-    slides.forEach(slide => { 
+function showSlides() {
+    slides.forEach(slide => {
         slide.classList.remove('fade');
     });
-    
+
     slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add('fade'); 
+    slides[slideIndex].classList.add('fade');
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-   
+    // Slideshow Init
     if (slides.length > 0) {
-        slides[0].classList.add('fade'); 
-        setInterval(showSlides, slideInterval); 
+        slides[0].classList.add('fade');
+        setInterval(showSlides, slideInterval);
     }
 
-  
+    // Auth + Cart Setup
     let users = JSON.parse(localStorage.getItem('users')) || [];
     let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 
+    // Add class="logged-in" to <body> if logged in
     if (currentUser) {
         document.body.classList.add('logged-in');
     } else {
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: '6', title: 'Slap Stick', price: 54.99, image: 'Slap-stick.png', description: 'Slap your way to the top in this ultimate stick slapping contest.' },
         { id: '7', title: 'Shaolin Stick', price: 54.99, image: 'Shaolin-stick.png', description: 'Learn the way of stick-shaolin and fight against your fellow practioners to win the position of the stick-abbot.'},
     ];
+
 
     function syncCurrentUserToUsers() {
         if (!currentUser) return;
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const count = currentUser ? currentUser.cart.reduce((total, item) => total + item.quantity, 0) : 0;
         document.querySelectorAll('#cart-count').forEach(el => el.textContent = count);
     }
- 
+
     function addToCart(game) {
         if (!currentUser) {
             alert('Please log in to add items to your cart!');
@@ -94,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         syncCurrentUserToUsers();
         updateCartCount();
 
+
         const successMsg = document.createElement('div');
         successMsg.className = 'cart-success';
         successMsg.textContent = `${game.title} added to cart!`;
@@ -101,16 +104,17 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => successMsg.remove(), 2000);
     }
 
+
     function removeFromCart(gameId) {
         if (!currentUser) return;
 
-        const item = currentUser.cart.find(item => item.id === gameId);
-        if (item) { 
-            if (item.quantity > 1){
-                item.quantity -= 1;
-            }else{ 
-                currentUser.cart = currentUser.cart.filter(item => item.id !== gameId);
-            }
+        currentUser.cart = currentUser.cart.filter(item => item.id !== gameId);
+
+
+
+
+
+
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
         syncCurrentUserToUsers();
         updateCartCount();
@@ -211,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
+    // Dropdown + Logout
     const dropdownBtn = document.getElementById('user-dropdown-btn');
     const dropdownContent = document.getElementById('user-dropdown');
     const logoutBtn = document.getElementById('logout');
@@ -227,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dropdownContent?.classList.toggle('show');
         });
     }
- 
+
     document.addEventListener('click', () => {
         dropdownContent?.classList.remove('show');
     });
@@ -240,12 +244,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-   
+    // Add to Cart button handlers
     document.querySelectorAll('.game-card .btn').forEach((btn, index) => {
         btn.addEventListener('click', () => addToCart(gameData[index]));
     });
 
-
+    // Checkout button
     const checkoutBtn = document.querySelector('.checkout-btn');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
@@ -262,7 +266,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-   
+
+    //game hover
     const descriptionBox = document.createElement('div');
 descriptionBox.classList.add('game-description-box');
 document.body.appendChild(descriptionBox);
