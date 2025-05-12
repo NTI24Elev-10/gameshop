@@ -282,6 +282,21 @@ nav ul li a:hover {
     width: calc(100% - 2rem);
 }
 
+.game-description-box {
+    position: absolute;
+    display: none;
+    max-width: 200px;
+    background-color: #222;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 999;
+    font-size: 0.9rem;
+    transition: opacity 0.2s ease;
+}
+
+
 /* Footer Section */
 footer {
     background-color: crimson;
