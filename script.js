@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: '2', title: 'Stick Warfare', price: 49.99, image: 'Stick-warfare.png', description: 'Fight against other stickpeople by yourself or with your friends in this modern deadly stick war.' },
         { id: '3', title: 'Stick Fest', price: 39.99, image: 'Stick-fest.png', description: 'Dance and have fun with other stickpeople in this musically driven dance filled stick fest.' },
         { id: '4', title: 'For Stick', price: 54.99, image: 'For-stick.png', description: 'Fight for your fiefdom in this medieval stick world using wide range of weapons such as sword, spear and axe.' },
-        { id: '5', title: 'Warfare Total Stick', price: 54.99, image: 'Warfare-total-stick.png', description:},
-        { id: '6', title: 'Slap Stick', price: 54.99, image: 'Slap-stick.png' },
-        { id: '7', title: 'Shaolin Stick', price: 54.99, image: 'Shaolin-stick.png' },
+        { id: '5', title: 'Warfare Total Stick', price: 54.99, image: 'Warfare-total-stick.png', description: 'Lead your armies made of thousands of stick-troops to battle other commanders and conquer the stick-world.'},
+        { id: '6', title: 'Slap Stick', price: 54.99, image: 'Slap-stick.png', description: 'Slap your way to the top in this ultimate stick slapping contest.' },
+        { id: '7', title: 'Shaolin Stick', price: 54.99, image: 'Shaolin-stick.png', description: 'Learn the way of stick-shaolin and fight against your fellow practioners to win the position of the stick-abbot.'},
     ];
 
     function syncCurrentUserToUsers() {
