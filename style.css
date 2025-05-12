@@ -1,26 +1,31 @@
-
-/* Reset and Base Styles */
+/* ========================
+Reset and Base Styles 
+=========================*/
+/* reset margin and padding for all elements use border-box for sizing and apply a base font*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+/* set the background color of the page and the base text color*/
 body {
-    background-color: #ff00ff;
+    background-color: #ff00ff; /*magenta*/
     color: magenta;
-    line-height: 1.6;
+    line-height: 1.6; /*improve readability*/
 }
 
-/* Header Styles - Fixed */
+/*===========================
+Header Styles - navbar
+===========================*/
+/*header section styling*/
 header {
-    background-color: cyan;
+    background-color: cyan; /*header background color*/
     color: white;
     padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /*subtle shadow for depth*/
 }
-
+/*container inside navbar to align items horizontaly*/
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -28,37 +33,41 @@ header {
     max-width: 1200px;
     margin: 0 auto;
 }
-
+/* navigation links styles*/
 .nav-links,
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1rem; /*space between items*/
 }
-
+/* individual nav link styling*/
 nav ul li a {
     color: red;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s; /*smooth hover effect*/
 }
-
+/*hover effect for nav links*/
 nav ul li a:hover {
     color: #e94560;
 }
-
+/*logo text style*/
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #00008B;
+    color: #00008B; /*dark blue*/
 }
 
-/* Dropdown Button Styles */
+/*================================
+Dropdown menu for logged in user
+===================================*/
+
+/* container for dropdown menu */
 .dropdown-container {
     position: relative;
     display: none; /* Hidden by default */
-    margin-left: 20px;
+    margin-left: 20px; 
 }
-
+/* button that opens the dropdown */
 .dropdown-btn {
     background-color: #4CAF50;
     color: white;
@@ -70,11 +79,11 @@ nav ul li a:hover {
     align-items: center;
     transition: all 0.3s ease;
 }
-
+/*hover effect for dropdown button*/
 .dropdown-btn:hover {
     background-color: #3e8e41;
 }
-
+/*user avatar styling*/
 .user-avatar {
     width: 30px;
     height: 30px;
@@ -82,17 +91,17 @@ nav ul li a:hover {
     margin-right: 10px;
     object-fit: cover;
 }
-
+/*username text*/
 .username {
     margin-right: 10px;
     font-weight: 500;
 }
-
+/*small arrow icon*/
 .dropdown-arrow {
     font-size: 0.8em;
 }
 
-/* Dropdown Content (Hidden by Default) */
+/* dropdown content: hidden by default */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -112,43 +121,30 @@ nav ul li a:hover {
     display: block;
 }
 
-/* Change color of dropdown links on hover */
+/* hover effect for dropdown items */
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
-/* Show the dropdown menu (use JS to add this class) */
+/* class to make dropdown visible via JS */
 .show {
     display: block;
 }
 
 
-/* When user is logged in */
+/* when logged in show dropdown button and hide login and signup*/
 .logged-in .dropdown-container {
     display: inline-block;
 }
-
  .logged-in #login-link,
  .logged-in #signup-link {
     display: none;
 }
 
-/* Hide login/signup links when dropdown is visible */
- .logged-in #login-link,
- .logged-in #signup-link {
-    display: none;
-}
+/*================================
+hero section with slideshow
+================================*/
 
-/* Show dropdown container when logged in */
- .logged-in .dropdown-container {
-    display: block;
-}
-
-
-
-
-
-/* Hero Section with Slideshow - Fixed */
 .hero {
     position: relative;
     height: 60vh;
@@ -161,7 +157,7 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
 }
-
+/* each slide hidden by default*/
 .slide {
     position: absolute;
     width: 100%;
@@ -169,18 +165,18 @@ nav ul li a:hover {
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
-
+/*slide image setup*/
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
-
+/* when slide has class fade make it visible*/
 .slide.fade {
     opacity: 1;
 }
-
+/*text overlay on hero image*/
 .hero-text {
     position: absolute;
     top: 50%;
@@ -194,20 +190,24 @@ nav ul li a:hover {
     padding: 2rem;
     border-radius: 10px;
 }
-
+/* main hero heading*/
 .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
-
+/*hero paragraph*/
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-/* Button Styles */
+/*========================
+Button styles
+========================*/
+
+/* button styles */
 .btn {
     display: inline-block;
     background-color: #e94560;
@@ -225,6 +225,10 @@ nav ul li a:hover {
     background-color: #d13354;
 }
 
+/*==============================
+Featured games section
+==============================*/
+
 /* Featured Games Section */
 .featured {
     padding: 4rem 2rem;
@@ -236,7 +240,7 @@ nav ul li a:hover {
     margin-bottom: 2rem;
     color: #1a1a2e;
 }
-
+/*layout for the game cards*/
 .games-container {
     display: flex;
     flex-wrap: wrap;
@@ -245,7 +249,7 @@ nav ul li a:hover {
     max-width: 1400px;
     margin: 0 auto;
 }
-
+/*individual game card styling*/
 .game-card {
     background: white;
     border-radius: 8px;
@@ -254,7 +258,7 @@ nav ul li a:hover {
     width: 200px;
     transition: transform 0.3s;
 }
-
+/*pop up on hover*/
 .game-card:hover {
     transform: translateY(-10px);
 }
@@ -269,19 +273,19 @@ nav ul li a:hover {
     padding: 1rem;
     font-size: 1.2rem;
 }
-
+/*design of price*/
 .game-card .price {
     font-weight: bold;
     color: #e94560;
     padding: 0 1rem;
     margin-bottom: 1rem;
 }
-
+/*design for button*/
 .game-card .btn {
     margin: 0 1rem 1rem;
     width: calc(100% - 2rem);
 }
-
+/*description box shown on hover, initially hidden*/
 .game-description-box {
     position: absolute;
     display: none;
@@ -296,6 +300,9 @@ nav ul li a:hover {
     transition: opacity 0.2s ease;
 }
 
+/*===================================
+FOOTER SECTION
+===================================*/
 
 /* Footer Section */
 footer {
@@ -350,6 +357,10 @@ footer {
     margin: 0 auto;
 }
 
+/*============================
+AUTHENTICATION FORMS
+============================*/
+
 /* Auth Forms */
 .auth-form {
     max-width: 400px;
@@ -383,6 +394,10 @@ footer {
     font-size: 1rem;
 }
 
+/*==================================
+CART PAGE
+==================================*/
+
 /* Cart Page */
 .cart-container {
     display: flex;
@@ -390,11 +405,11 @@ footer {
     margin: 2rem auto;
     gap: 2rem;
 }
-
+/*item list secion*/
 #cart-items {
     flex: 2;
 }
-
+/*summary panel*/
 .cart-summary {
     flex: 1;
     background: white;
@@ -403,7 +418,7 @@ footer {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     height: fit-content;
 }
-
+/*individual cart item*/
 .cart-item {
     display: flex;
     background: white;
@@ -441,7 +456,7 @@ footer {
     border: none;
     padding: 0;
 }
-
+/*summary row styling*/
 .summary-row {
     display: flex;
     justify-content: space-between;
@@ -455,13 +470,13 @@ footer {
     font-size: 1.2rem;
     border-bottom: none;
 }
-
+/*checkout button*/
 .checkout-btn {
     width: 100%;
     padding: 1rem;
     font-size: 1.1rem;
 }
-
+/*display for empty cart*/
 .empty-cart {
     text-align: center;
     padding: 2rem;
@@ -470,7 +485,7 @@ footer {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Cart Success Message */
+/* success message animation */
 .cart-success {
     position: fixed;
     top: 20px;
@@ -482,7 +497,7 @@ footer {
     z-index: 1000;
     animation: fadeInOut 2s ease-in-out;
 }
-
+/* keyframes for success message fading in/out */
 @keyframes fadeInOut {
     0% { opacity: 0; transform: translateY(-20px); }
     20% { opacity: 1; transform: translateY(0); }
@@ -490,7 +505,10 @@ footer {
     100% { opacity: 0; transform: translateY(-20px); }
 }
 
-/* Responsive Adjustments */
+/*==================================
+RESPONSIVE DESIGN
+=================================*/
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
