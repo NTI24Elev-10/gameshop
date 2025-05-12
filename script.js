@@ -1,5 +1,5 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
+let slideIndex = 0; 
+const slides = document.querySelectorAll('.slide'); 
 const slideInterval = 3000;
 
 function showSlides() {
@@ -12,17 +12,17 @@ function showSlides() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Slideshow Init
+
     if (slides.length > 0) {
-        slides[0].classList.add('fade');
+        slides[0].classList.add('fade');  
         setInterval(showSlides, slideInterval);
     }
 
-    // Auth + Cart Setup
+ 
     let users = JSON.parse(localStorage.getItem('users')) || [];
     let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+    
 
-    // Add class="logged-in" to <body> if logged in
     if (currentUser) {
         document.body.classList.add('logged-in');
     } else {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             syncCurrentUserToUsers();
         }
     }
-
+ 
     function updateAuthUI() {
         const userIcon = document.getElementById('user-icon');
         const loginLink = document.getElementById('login-link') || document.querySelector('a[href="Log.html"]');
@@ -104,23 +104,25 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => successMsg.remove(), 2000);
     }
 
-
+  
     function removeFromCart(gameId) {
-        if (!currentUser) return;
+    if (!currentUser) return;
 
-        currentUser.cart = currentUser.cart.filter(item => item.id !== gameId);
-
-
-
-
-
+    const item = currentUser.cart.find(item => item.id === gameId);
+    if (item) {
+        if (item.quantity > 1) {
+            item.quantity -= 1;
+        } else {
+           
+            currentUser.cart = currentUser.cart.filter(item => item.id !== gameId);
+        }
 
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
         syncCurrentUserToUsers();
         updateCartCount();
         renderCart();
     }
-
+}
     function renderCart() {
         const cartItemsEl = document.getElementById('cart-items');
         const subtotalEl = document.getElementById('subtotal');
