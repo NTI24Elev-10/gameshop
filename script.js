@@ -1,33 +1,34 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const slideInterval = 3000;
+let slideIndex = 0; //slideshow setup
+const slides = document.querySelectorAll('.slide'); //select all slideshow elements
+const slideInterval = 3000; // slide show change interval in miliseconds
 
 function showSlides() {
-    slides.forEach(slide => {
+    slides.forEach(slide => { //remove fade class from each slides
         slide.classList.remove('fade');
     });
+    //move to the next slide
     slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add('fade');
+    slides[slideIndex].classList.add('fade'); //add fade class to new slide
 }
-
+    //DOM fully loaded
 document.addEventListener('DOMContentLoaded', function () {
-    // Slideshow Init
+    // start slideshow if slides exist
     if (slides.length > 0) {
-        slides[0].classList.add('fade');
-        setInterval(showSlides, slideInterval);
+        slides[0].classList.add('fade'); //show first slide
+        setInterval(showSlides, slideInterval); //rotate slides
     }
 
-    // Auth + Cart Setup
+    // retrieve stored users and currently logged-in users from local storage
     let users = JSON.parse(localStorage.getItem('users')) || [];
     let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 
-    // Add class="logged-in" to <body> if logged in
+    // add class="logged-in" to <body> if logged in
     if (currentUser) {
         document.body.classList.add('logged-in');
     } else {
         document.body.classList.remove('logged-in');
     }
-
+    //list of all game data, id, title, price, image and description
     const gameData = [
         { id: '1', title: 'Stick Cart', price: 59.99, image: 'Stick-cart.png', description: 'Race with your friends in the ultimate stick cart championship' },
         { id: '2', title: 'Stick Warfare', price: 49.99, image: 'Stick-warfare.png', description: 'Fight against other stickpeople by yourself or with your friends in this modern deadly stick war.' },
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: '7', title: 'Shaolin Stick', price: 54.99, image: 'Shaolin-stick.png', description: 'Learn the way of stick-shaolin and fight against your fellow practioners to win the position of the stick-abbot.'},
     ];
 
+    //sync any uptades in currentUser back to the users array in localStorage
     function syncCurrentUserToUsers() {
         if (!currentUser) return;
         const index = users.findIndex(user => user.email === currentUser.email);
