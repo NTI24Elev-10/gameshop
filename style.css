@@ -11,7 +11,7 @@ Reset and Base Styles
 /* set the background color of the page and the base text color*/
 body {
     background-color: #ff00ff; /*magenta*/
-    color: magenta;
+    color: red;
     line-height: 1.6; /*improve readability*/
 }
 
