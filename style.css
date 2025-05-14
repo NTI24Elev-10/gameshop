@@ -569,7 +569,10 @@ RESPONSIVE DESIGN
     }
 }
 
-/* Profile Page Styles */
+/* ================================
+Profile Page Styles 
+=================================*/
+
 .profile-section {
     padding: 2rem;
     max-width: 1200px;
@@ -623,7 +626,7 @@ RESPONSIVE DESIGN
 }
 
 .detail-card {
-    background: teal;
+    background: dimgrey;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -647,6 +650,7 @@ RESPONSIVE DESIGN
     font-weight: bold;
     margin-right: 0.5rem;
     min-width: 100px;
+	color: deeppink;
 }
 
 .detail-value {
@@ -731,6 +735,8 @@ RESPONSIVE DESIGN
 .dark-text-mode h3,
 .dark-text-mode h4,
 .dark-text-mode h5,
+.dark-text-mode .detail-value,
+.dark-text-mode .detail-label,
 .dark-text-mode h6 {
     color: #000 !important;
 }
