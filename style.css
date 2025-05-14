@@ -568,3 +568,201 @@ RESPONSIVE DESIGN
         padding: 0.6rem 1.2rem;
     }
 }
+
+/* Profile Page Styles */
+.profile-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-container {
+    background: midnightblue;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-avatar {
+    margin-right: 2rem;
+    text-align: center;
+}
+
+.profile-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 5px solid #e94560;
+}
+
+.profile-info h1 {
+    font-size: 2.5rem;
+    color: gold;
+    margin-bottom: 0.5rem;
+}
+
+.member-since {
+    color: firebrick;
+    font-size: 1rem;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.detail-card {
+    background: teal;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.detail-card h2 {
+    color: lime;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e94560;
+}
+
+.detail-item {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.detail-label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    min-width: 100px;
+}
+
+.detail-value {
+    flex: 1;
+    color: yellowgreen;
+}
+
+.edit-btn, .save-btn {
+    padding: 0.5rem 1rem;
+    margin-left: auto;
+    font-size: 0.9rem;
+}
+
+.preference-item {
+    margin-bottom: 1rem;
+}
+
+.preference-item select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 1rem;
+}
+
+.order-history {
+    min-height: 100px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-avatar {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .profile-info h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-section {
+        padding: 1rem;
+    }
+    
+    .profile-container {
+        padding: 1rem;
+    }
+    
+    .profile-avatar img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .edit-btn {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Dark text mode styles */
+.dark-text-mode {
+    color: #000 !important;
+}
+
+.dark-text-mode a {
+    color: #000 !important;
+}
+
+.dark-text-mode h1,
+.dark-text-mode h2,
+.dark-text-mode h3,
+.dark-text-mode h4,
+.dark-text-mode h5,
+.dark-text-mode h6 {
+    color: #000 !important;
+}
+
+.dark-text-mode .hero-text h1,
+.dark-text-mode .hero-text p {
+    color: #000 !important;
+    text-shadow: none !important;
+}
+
+.dark-text-mode .price {
+    color: #000 !important;
+}
+
+.dark-text-mode .footer-section,
+.dark-text-mode .footer-section a,
+.dark-text-mode .footer-bottom {
+    color: #000 !important;
+}
+
+
+#dark-text-toggle {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#dark-text-toggle:hover {
+    background-color: #555;
+}
