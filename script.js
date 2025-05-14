@@ -297,3 +297,91 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCartCount();
     renderCart();
 });
+
+ document.addEventListener('DOMContentLoaded', function() {
+            /* Load user data*/
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                window.location.href = 'Log.html';
+                return;
+            }
+
+            /* Populate profile data*/
+            document.getElementById('profile-username').textContent = currentUser.username || 'User';
+            document.getElementById('profile-email').textContent = currentUser.email || 'user@example.com';
+            
+            /* Set member since date (if available)*/
+            if (currentUser.joinDate) {
+                document.getElementById('member-since').textContent = currentUser.joinDate;
+            } else {
+                /* Set default to current year if no join date exists*/
+                document.getElementById('member-since').textContent = new Date().getFullYear();
+            }
+
+            /* Set preferences if they exist*/
+            if (currentUser.preferences) {
+                if (currentUser.preferences.platform) {
+                    document.getElementById('platform-pref').value = currentUser.preferences.platform;
+                }
+                if (currentUser.preferences.genre) {
+                    document.getElementById('genre-pref').value = currentUser.preferences.genre;
+                }
+            }
+
+            /* Save preferences button*/
+            document.getElementById('save-prefs').addEventListener('click', function() {
+                if (!currentUser.preferences) {
+                    currentUser.preferences = {};
+                }
+                
+                currentUser.preferences.platform = document.getElementById('platform-pref').value;
+                currentUser.preferences.genre = document.getElementById('genre-pref').value;
+                
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                alert('Preferences saved!');
+            });
+
+            /* Logout functionality*/
+            document.getElementById('logout').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('currentUser');
+                window.location.href = 'index.html';
+            });
+
+            /* Change avatar button (placeholder functionality)*/
+            document.getElementById('change-avatar').addEventListener('click', function() {
+                alert('Avatar change functionality would go here in a real application');
+            });
+
+            /* Change password button (placeholder functionality)*/
+            document.getElementById('change-password').addEventListener('click', function() {
+                alert('Password change functionality would go here in a real application');
+            });
+        });
+		
+		/* Dark text toggle functionality*/
+document.addEventListener('DOMContentLoaded', function() {
+    const darkTextToggle = document.getElementById('dark-text-toggle');
+    
+    if (darkTextToggle) {
+        /* Check if dark text mode was enabled previously*/
+        const isDarkText = localStorage.getItem('darkTextMode') === 'enabled';
+        if (isDarkText) {
+            document.body.classList.add('dark-text-mode');
+            darkTextToggle.textContent = 'Normal Text Mode';
+        }
+        
+        darkTextToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-text-mode');
+            
+            if (document.body.classList.contains('dark-text-mode')) {
+                localStorage.setItem('darkTextMode', 'enabled');
+                darkTextToggle.textContent = 'Normal Text Mode';
+            } else {
+                localStorage.setItem('darkTextMode', 'disabled');
+                darkTextToggle.textContent = 'Dark Text Mode';
+            }
+        });
+    }
+});
