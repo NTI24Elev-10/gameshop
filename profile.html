@@ -1,13 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGK - Your Ultimate Stick Game Shop</title>
+    <title>TGK - User Profile</title>
     <link rel="stylesheet" href="style.css">
-    
-
 </head>
 <body>
     <!-- Navbar -->
@@ -15,101 +12,88 @@
         <div class="header-content">
             <div class="logo">TGK</div>
             <nav>
-                <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Platform.html">Platform</a></li>
-                <li><a href="Genres.html">Genres</a></li>
-                <li><a href="Cart.html">Cart</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-		<li><a href="Sign.html">Sign up</a></li>  
-		<li><a href="Log.html">Log in</a></li>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Platform.html">Platform</a></li>
+                    <li><a href="Genres.html">Genres</a></li>
+                    <li><a href="Cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li id="login-link"><a href="Log.html">Log in</a></li>
+                    <li id="signup-link"><a href="Sign.html">Sign up</a></li>
                 </ul>
+                 <button id="dark-text-toggle" class="btn">Dark Text Mode</button>
+                <!-- Dropdown Container -->
+                <div class="dropdown-container" id="user-dropdown-container">
+                    <button class="dropdown-btn" id="user-dropdown-btn">
+                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User" class="user-avatar">
+                        <span class="username" id="username-display">Account</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-content" id="user-dropdown">
+                        <a href="profile.html">Profile</a>
+                        <a href="#" id="logout">Logout</a>
+                    </div>
+                </div>
             </nav>
         </div>
-    <div id="user-icon" class="user-icon hidden">
-    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Icon">
-    <div id="user-dropdown" class="dropdown hidden">
-        <a href="profile.html">Profile</a>
-        <a href="#" id="logout">Logout</a>
-    </div>
-</div>
     </header>
 
-     <!-- Hero section with slideshow -->
-    <section class="hero">
-        <div class="slideshow-container">
-            <div class="slide fade">
-                <img src="Stick-fest.png" alt="Stick Game 1">
-                <div class="hero-text">
-                    <h1>Discover Your Next Stick Adventure</h1>
-                    <p>Explore thousands of stick games for all platforms at the best prices</p>
-                    <a href="#" class="btn">Shop Now</a>
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile Avatar" id="profile-avatar">
+                    <button class="btn edit-btn" id="change-avatar">Change Avatar</button>
+                </div>
+                <div class="profile-info">
+                    <h1 id="profile-username">Username</h1>
+                    <p class="member-since">Member since: <span id="member-since">2023</span></p>
                 </div>
             </div>
-            <div class="slide fade">
-                <img src="For-stick.png" alt="Stick Game 2">
-                <div class="hero-text">
-                    <h1>Premium Stick Games Collection</h1>
-                    <p>Recommended by 9 out of 10 stickmen</p>
-                    <a href="#" class="btn">Browse Games</a>
-                </div>
-            </div>
-            <div class="slide fade">
-                <img src="Slap-stick.png" alt="Stick Game 3">
-                <div class="hero-text">
-                    <h1>New Releases Every Week</h1>
-                    <p>Never miss out on the latest stick action</p>
-                    <a href="#" class="btn">View New</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Featured games -->
-    <section class="featured">
-        <h2>Featured Games</h2>
-        <div class="games-container">
-            <div class="game-card">
-                <img src="Stick-cart.png" alt="Stick Cart">
-                <h3>Stick Cart</h3>
-                <p class="price">€59.99</p>
-                <button class="btn">Add to Cart</button>
-            </div>
-            <div class="game-card">
-                <img src="Stick-warfare.png" alt="Stick Warfare">
-                <h3>Stick Warfare</h3>
-                <p class="price">€49.99</p>
-                <button class="btn">Add to Cart</button>
-            </div>
-            <div class="game-card">
-                <img src="Stick-fest.png" alt="Stick Fest">
-                <h3>Stick Fest</h3>
-                <p class="price">€39.99</p>
-                <button class="btn">Add to Cart</button>
-            </div>
-            <div class="game-card">
-                <img src="For-stick.png" alt="For Stick">
-                <h3>For Stick</h3>
-                <p class="price">€54.99</p>
-                <button class="btn">Add to Cart</button>
-            </div>
-            <div class="game-card">
-                <img src="Warfare-total-stick.png" alt="Warfare Total Stick">
-                <h3>Warfare Total Stick</h3>
-                <p class="price">€54.99</p>
-                <button class="btn">Add to Cart</button>
-            </div>
-            <div class="game-card">
-                <img src="Slap-stick.png" alt="Slap Stick">
-                <h3>Slap Stick</h3>
-                <p class="price">€54.99</p>
-                <button class="btn">Add to Cart</button>
-            </div>
-            <div class="game-card">
-                <img src="Shaolin-stick.png" alt="Shaolin Stick">
-                <h3>Shaolin Stick</h3>
-                <p class="price">€54.99</p>
-                <button class="btn">Add to Cart</button>
+            <div class="profile-details">
+                <div class="detail-card">
+                    <h2>Account Information</h2>
+                    <div class="detail-item">
+                        <span class="detail-label">Email:</span>
+                        <span class="detail-value" id="profile-email">user@example.com</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Password:</span>
+                        <span class="detail-value">••••••••</span>
+                        <button class="btn edit-btn" id="change-password">Change Password</button>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Order History</h2>
+                    <div class="order-history">
+                        <p>You haven't placed any orders yet.</p>
+                        <!-- Orders would be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Preferences</h2>
+                    <div class="preference-item">
+                        <span>Favorite Platform:</span>
+                        <select id="platform-pref">
+                            <option value="pc">PC</option>
+                            <option value="console">Console</option>
+                            <option value="mobile">Mobile</option>
+                        </select>
+                    </div>
+                    <div class="preference-item">
+                        <span>Favorite Genre:</span>
+                        <select id="genre-pref">
+                            <option value="action">Action</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="strategy">Strategy</option>
+                            <option value="sports">Sports</option>
+                        </select>
+                    </div>
+                    <button class="btn save-btn" id="save-prefs">Save Preferences</button>
+                </div>
             </div>
         </div>
     </section>
@@ -140,5 +124,3 @@
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
