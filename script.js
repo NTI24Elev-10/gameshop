@@ -10,6 +10,7 @@ function showSlides() {
     slideIndex = (slideIndex + 1) % slides.length;
     slides[slideIndex].classList.add('fade'); /*add fade class to new slide*/
 }
+
 /*DOM fully loaded*/
 document.addEventListener('DOMContentLoaded', function () {
     /* start slideshow if slides exist*/
@@ -80,8 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
     /*adds games to the users cart or increase quantity if it already exists*/
     function addToCart(game) {
         if (!currentUser) {
-            alert('Please log in to add items to your cart!');
-            window.location.href = 'Log.html';
+            setTimeout(() => { /* Added delay to prevent navigation throttling */
+                alert('Please log in to add items to your cart!');
+                window.location.href = 'Log.html';
+            }, 100);
             return;
         }
 
@@ -194,8 +197,10 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.setItem('users', JSON.stringify(users));
             currentUser = newUser;
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            alert('Account created successfully!');
-            window.location.href = 'index.html';
+            setTimeout(() => { /* Added delay to prevent navigation throttling */
+                alert('Account created successfully!');
+                window.location.href = 'index.html';
+            }, 100);
         });
     }
 
@@ -211,8 +216,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (user) {
                 currentUser = user;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                alert(`Welcome back, ${user.username}!`);
-                window.location.href = 'index.html';
+                setTimeout(() => { /* Added delay to prevent navigation throttling */
+                    alert(`Welcome back, ${user.username}!`);
+                    window.location.href = 'index.html';
+                }, 100);
             } else {
                 alert('Invalid email or password.');
             }
@@ -244,7 +251,9 @@ document.addEventListener('DOMContentLoaded', function () {
         logoutBtn.addEventListener('click', e => {
             e.preventDefault();
             localStorage.removeItem('currentUser');
-            window.location.href = 'index.html';
+            setTimeout(() => { /* Added delay to prevent navigation throttling */
+                window.location.href = 'index.html';
+            }, 100);
         });
     }
 
@@ -258,8 +267,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
             if (!currentUser) {
-                alert('Please log in to proceed to checkout!');
-                window.location.href = 'Log.html';
+                setTimeout(() => { /* Added delay to prevent navigation throttling */
+                    alert('Please log in to proceed to checkout!');
+                    window.location.href = 'Log.html';
+                }, 100);
                 return;
             }
             if (!currentUser.cart.length) {
@@ -291,17 +302,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    /* final set up calls*/
-    initializeUserCart();
-    updateAuthUI();
-    updateCartCount();
-    renderCart();
-});
-
- document.addEventListener('DOMContentLoaded', function() {
-            /* Load user data*/
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            
+    /* Profile page specific functionality */
+    if (document.getElementById('profile-username')) {
+        /* Load user data with delay to prevent throttling */
+        setTimeout(() => {
             if (!currentUser) {
                 window.location.href = 'Log.html';
                 return;
@@ -342,13 +346,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert('Preferences saved!');
             });
 
-            /* Logout functionality*/
-            document.getElementById('logout').addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.removeItem('currentUser');
-                window.location.href = 'index.html';
-            });
-
             /* Change avatar button (placeholder functionality)*/
             document.getElementById('change-avatar').addEventListener('click', function() {
                 alert('Avatar change functionality would go here in a real application');
@@ -358,12 +355,11 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('change-password').addEventListener('click', function() {
                 alert('Password change functionality would go here in a real application');
             });
-        });
-		
-		/* Dark text toggle functionality*/
-document.addEventListener('DOMContentLoaded', function() {
+        }, 100);
+    }
+
+    /* Dark text toggle functionality*/
     const darkTextToggle = document.getElementById('dark-text-toggle');
-    
     if (darkTextToggle) {
         /* Check if dark text mode was enabled previously*/
         const isDarkText = localStorage.getItem('darkTextMode') === 'enabled';
@@ -384,4 +380,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    /* final set up calls*/
+    initializeUserCart();
+    updateAuthUI();
+    updateCartCount();
+    renderCart();
 });
