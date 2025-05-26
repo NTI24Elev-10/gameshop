@@ -772,3 +772,20 @@ Profile Page Styles
 #dark-text-toggle:hover {
     background-color: #555;
 }
+
+.video-container {
+  position: relative;
+  width: 640px;
+  height: 360px;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+}
