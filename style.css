@@ -774,7 +774,7 @@ Profile Page Styles
 }
 
 .video-container {
-  position: relative;
+  position: center;
   width: 640px;
   height: 360px;
 }
